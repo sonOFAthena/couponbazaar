@@ -30,13 +30,23 @@ ReactDOM.render(
     </ThemeProvider>,
     document.getElementById('root'),
 );
-let dappaddress = '3N5HzCuVFaprA1w6eo9MdFmkCG77foHZu6a';
+let dappaddress = '3N7tN9zfe1WEaQ71g9feWM5Tqgm6d33AS8a';
 let baseUri = 'https://testnodes.wavesnodes.com';
 nodeInteraction.accountData(dappaddress, baseUri).then((v) => {
     window.dAppData = v;
     if (v) {
         window.dAppDataKeys = Object.keys(v);
         console.log("dApp Account data:");
+        console.log(v);
+        console.log(JSON.stringify(v));
+    }
+});
+
+nodeInteraction.currentHeight(baseUri).then((v) => {
+    window.dAppData = v;
+    if (v) {
+        window.dAppDataKeys = Object.keys(v);
+        console.log("block number:");
         console.log(v);
         console.log(JSON.stringify(v));
     }
